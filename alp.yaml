@@ -1,0 +1,9 @@
+ matching_groups:
+  - /api/courses/[^/]+/status
+  - /api/courses/[^/]+/classes/[^/]+/assignments/scores
+  - /api/courses/[^/]+/classes/[^/]+/assignments/export
+  - /api/courses/[^/]+/classes/[^/]+/assignments
+  - /api/courses/[^/]+/classes
+  - /api/courses/[^/]+
+  - /api/announcements/[^/]+
+ reverse: true

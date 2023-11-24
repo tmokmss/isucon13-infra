@@ -8,10 +8,12 @@
     * `git pull git@github.com:tmokmss/isucon13-infra.git -b tagxx`
 * リポジトリをローカルにpull
   * defender, userの設定を忘れずに行う
+* AWSアカウントにクーポン適用
+  * https://us-east-1.console.aws.amazon.com/billing/home?region=ap-northeast-1#/credits
 
 これはコンテスト直前に実施する:
 
-* AWSアカウントにログイン
+* AWSアカウントにログイン https://aws.amazon.com/console/
 * ターミナルのウィンドウ配置
   * メトリクス監視 (同時に見えるようにする)
     * isu1-3
@@ -24,6 +26,16 @@
   * ターミナルにタブ名をつけておく (isu1,isu2,isu3)
 * GoLand開く
 
+## AWSにデプロイ
+* https://ap-northeast-1.console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/create
+* インスタンスのIPをここに書いておこう
+
+```
+isu1: 
+isu2: 
+isu3: 
+```
+
 ## ssh/config設定
 ローカル端末の設定。各インスタンスのグローバルIPアドレスはデプロイ後にマネコンで確認する。
 
@@ -31,15 +43,15 @@
 code ~/.ssh/config
 
 Host isu1
-  HostName 3.x.x.x
+  HostName x.x.x.x
   User isucon
 
 Host isu2
-  HostName 3.x.x.x
+  HostName x.x.x.x
   User isucon
 
 Host isu3
-  HostName 3.x.x.x
+  HostName x.x.x.x
   User isucon
 ```
 
@@ -79,13 +91,12 @@ git clone git@github.com:tmokmss/isucon13-infra.git
 make init
 git checkout .bashrc .inputrc
 make apply
+source ~/.bashrc
+bind -f ~/.inputrc
 
 git add .
 gcm "init"
 g push
-
-source ~/.bashrc
-bind -f ~/.inputrc
 ```
 
 次に app
@@ -105,6 +116,15 @@ git push -f --set-upstream origin main
 
 再度インフラに戻る。バージョン管理したいファイルを見つけて、Makefileに追加する。例:
 
+```sh
+# appのサービス定義
+sudo systemctl list-unit-files | grep isu
+sudo systemctl cat isucholar.go
+
+# nginx conf
+nginx -V 2>&1 | grep --colour conf
+```
+
 * ~/env.sh
 * /etc/nginx/sites-enabled/isuxxx.conf
 
@@ -117,7 +137,7 @@ gcm "add"
 g push
 ```
 
-### /etc/hosts
+### /etc/hostsの編集
 ローカルIPはAWSマネコンから確認
 
 ```sh

@@ -202,6 +202,15 @@ Run ssh port forwarding and open http://localhost:8081
 ssh -L localhost:8081:localhost:8081 isu1
 ```
 
+### Clean up journal log
+```sh
+# check journal log size
+sudo journalctl --disk-usage
+
+# reteain only recent logs up to 200MB
+sudo journalctl --vacuum-size=200M
+```
+
 ## Additional resources
 * https://github.com/catatsuy/memo_isucon
 * https://gist.github.com/minhquang4334/26e86a84731164581ed25d3fc7fe5211

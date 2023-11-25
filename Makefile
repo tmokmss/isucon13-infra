@@ -42,7 +42,7 @@ nginx:
 
 app:
 	# TODO: check command to restart the app
-	sudo systemctl restart isupipe.go
+	sudo systemctl restart isupipe-go
 
 alp: date
 	# Add arguments: e.g. make alp args="--sort p99 -r"

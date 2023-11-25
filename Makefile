@@ -13,6 +13,7 @@ init:
 	cp /etc/nginx/sites-enabled/isupipe.conf ./isupipe.conf | true
 	# cp /etc/mysql/my.cnf ./my.cnf | true
 	cp /etc/mysql/mysql.conf.d/mysqld.cnf mysqld.cnf | true
+	cp /etc/powerdns/pdns.conf pdns.conf | true
 apply:
 	# cannot apply this from Makefile for some reason
 	# source ~/.bashrc
@@ -28,8 +29,10 @@ apply:
 	sudo cp ./isupipe.conf /etc/nginx/sites-enabled/isupipe.conf
 	# sudo cp ./my.cnf /etc/mysql/my.cnf
 	sudo cp ./mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+	sudo cp ./pdns.conf /etc/powerdns/pdns.conf
 	make nginx
 	make db
+	make pdns
 
 date:
 	@TZ=Asia/Tokyo date +"%Y-%m-%dT%H:%M:%S%z"
@@ -39,6 +42,8 @@ db:
 
 nginx:
 	sudo systemctl restart nginx.service
+pdns:
+	sudo systemctl restart pdns
 
 app:
 	# TODO: check command to restart the app

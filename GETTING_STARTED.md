@@ -31,6 +31,12 @@
 * インスタンスのIPをここに書いておこう
 
 ```
+# global
+isu1: 
+isu2: 
+isu3: 
+
+# local
 isu1: 
 isu2: 
 isu3: 
@@ -180,7 +186,7 @@ sudo vim /etc/hosts
 これにて基本のセットアップは完了です。
 
 ## ソロISUCON 道標
-具体的なコマンドはこちらに: https://github.com/tmokmss/isucon12q-infra
+具体的なコマンドはこちらに: https://github.com/tmokmss/isucon13-infra
 
 1. 環境のセットアップ
    1. プロビジョニング
@@ -197,19 +203,24 @@ sudo vim /etc/hosts
    3. サービスの起動方法
    4. 各種confの位置
 4. ルールの確認
-5. DBとアプリのサーバーを分離 とりあえず2台使う
+5. 脳死改善
+   1. DBとアプリのサーバーを分離 とりあえず2台使う
+   2. mitigations=off
+   3. mysql速度特化に skip-log-bin, skip-name-resolve, flush_log_at_trx performance_schema=OFF
+   4. mysqlConfig.InterpolateParams = true
+   5. nginx http=1.1, keepalive
 6. ログ仕込む
    1. slow query
    2. alp用のアクセスログ
 7. ベンチマーク回す (ここまで1時間でできていれば最高！)
    1. htopで各サーバーのCPU使用率を監視
    2. アプリとDBどちらがボトルネックかを確認
-8. (DBなら)
+8.  (DBなら)
    1. DDL修正
        1. slow query見ながらインデックスを貼る
    2. DB分割
       1. テーブル間でトランザクションなければ分割可能
-9. (アプリなら) 
+9.  (アプリなら) 
     1. N+1解消
     2. オンメモリ化
     3. バルクインサート

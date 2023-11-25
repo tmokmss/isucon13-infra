@@ -31,7 +31,7 @@ apply:
 	# sudo cp ./my.cnf /etc/mysql/my.cnf
 	sudo cp ./mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 	sudo cp ./pdns.conf /etc/powerdns/pdns.conf
-	sudo cp ./dnsdist.conf /etc/dnsdist/dnsdist.conf
+	#sudo cp ./dnsdist.conf /etc/dnsdist/dnsdist.conf
 	make nginx
 	make db
 	make pdns

@@ -1,7 +1,6 @@
  matching_groups:
   - /api/user/[^/]+/theme
   - /api/user/[^/]+/livestream
-  - /api/livestream/[^/]+
   - /api/livestream/[^/]+/livecomment
   - /api/livestream/[^/]+/reaction
   - /api/livestream/[^/]+/reports
@@ -9,9 +8,10 @@
   - /api/livestream/[^/]+/livecomment/[^/]+/report
   - /api/livestream/[^/]+/moderate
   - /api/livestream/[^/]+/enter
+  - /api/livestream/[^/]+/statistics
   - /api/livestream/[^/]+/exit
-  - /api/user/[^/]+
+  - /api/livestream/[^/]+
   - /api/user/[^/]+/statistics
   - /api/user/[^/]+/icon
-  - /api/livestream/[^/]+/statistics
+  - /api/user/[^/]+
  reverse: true

@@ -14,6 +14,8 @@ init:
 	# cp /etc/mysql/my.cnf ./my.cnf | true
 	cp /etc/mysql/mysql.conf.d/mysqld.cnf mysqld.cnf | true
 	cp /etc/powerdns/pdns.conf pdns.conf | true
+	cp /etc/dnsdist/dnsdist.conf dnsdist.conf | true
+	
 apply:
 	# cannot apply this from Makefile for some reason
 	# source ~/.bashrc
@@ -30,6 +32,7 @@ apply:
 	# sudo cp ./my.cnf /etc/mysql/my.cnf
 	sudo cp ./mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 	sudo cp ./pdns.conf /etc/powerdns/pdns.conf
+	sudo cp ./dnsdist.conf /etc/dnsdist/dnsdist.conf
 	make nginx
 	make db
 	make pdns
@@ -51,7 +54,7 @@ app:
 
 alp: date
 	# Add arguments: e.g. make alp args="--sort p99 -r"
-	alp --config alp.yaml ltsv --file /var/log/nginx/access.log $(args)
+	sudo alp --config alp.yaml ltsv --file /var/log/nginx/access.log $(args)
 
 ptq: date
 	sudo pt-query-digest --explain 'h=isu2,u=isucon,p=isucon,D=isupipe' --limit 10 /var/log/mysql/mysql-slow.log

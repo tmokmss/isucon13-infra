@@ -115,32 +115,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-# BEGIN ANSIBLE MANAGED BLOCK go
-export PATH=/home/isucon/local/go/bin:/home/isucon/go/bin:$PATH
-export GOROOT=/home/isucon/local/go
-# END ANSIBLE MANAGED BLOCK go
-# BEGIN ANSIBLE MANAGED BLOCK Rust
-export PATH=/home/isucon/.cargo/bin:$PATH
-# END ANSIBLE MANAGED BLOCK Rust
-# BEGIN ANSIBLE MANAGED BLOCK nodejs
-export PATH=/home/isucon/local/node/bin:$PATH
-# END ANSIBLE MANAGED BLOCK nodejs
-# BEGIN ANSIBLE MANAGED BLOCK Ruby
-export PATH=/home/isucon/local/ruby/bin:$PATH
-# END ANSIBLE MANAGED BLOCK Ruby
-# BEGIN ANSIBLE MANAGED BLOCK php
-export PATH=/home/isucon/local/php/bin:$PATH
-# END ANSIBLE MANAGED BLOCK php
-
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
-
-alias g='git'
-alias gco='git checkout'
-alias gs='git status'
-alias gcm='git commit -m'
-alias gb='git branch'
-alias gca='git commit --amend --date=now --reset-author'
-

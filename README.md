@@ -19,22 +19,22 @@ sudo apparmor_parser -R /etc/apparmor.d/disable/usr.sbin.mysqld
 
 ### show systemd definition
 ```sh
-systemctl cat isupipe.go.service
+systemctl cat isupipe-go.service
 
 # or check the definition file directly
-sudo systemctl status isupipe.go.service
+sudo systemctl status isupipe-go.service
 
 # something like this will appear
-● isupipe.go.service - isupipe.go
-     Loaded: loaded (/etc/systemd/system/isupipe.go.service; enabled; vendor preset: enabled)
+● isupipe-go.service - isupipe-go
+     Loaded: loaded (/etc/systemd/system/isupipe-go.service; enabled; vendor preset: enabled)
      Active: active (running) since Thu 2023-11-02 06:51:40 UTC; 1h 46min ago
    Main PID: 26760 (isupipe)
       Tasks: 15 (limit: 2260)
      Memory: 478.9M
-     CGroup: /system.slice/isupipe.go.service
+     CGroup: /system.slice/isupipe-go.service
              └─26760 /home/isucon/webapp/go/isupipe
 
-cat /etc/systemd/system/isupipe.go.service
+cat /etc/systemd/system/isupipe-go.service
 ```
 
 ### setup alp
@@ -88,7 +88,8 @@ sudo less /var/log/syslog
 sudo less /var/log/mysql
 sudo less /var/log/nginx
 
-journalctl -q -u isupipe.go -f
+journalctl -q -u isupipe-go -f
+journalctl -q -u isupipe-go -f
 journalctl -xe
 sudo journalctl -xe
 ```

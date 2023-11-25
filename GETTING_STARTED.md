@@ -32,14 +32,14 @@
 
 ```
 # global
-isu1: 
-isu2: 
-isu3: 
+isu1: 3.113.206.128
+isu2: 3.114.81.45
+isu3: 57.180.129.125
 
 # local
-isu1: 
-isu2: 
-isu3: 
+isu1: 192.168.0.11
+isu2: 192.168.0.13
+isu3: 192.168.0.12
 ```
 
 ## ssh/config設定
@@ -125,7 +125,7 @@ git push -f --set-upstream origin main
 ```sh
 # appのサービス定義
 sudo systemctl list-unit-files | grep isu
-sudo systemctl cat isupipe.go
+sudo systemctl cat isupipe-go
 
 # nginx conf
 nginx -V 2>&1 | grep --colour conf
@@ -149,9 +149,9 @@ g push
 ```sh
 sudo vim /etc/hosts
 
-172.31.36.145 isu1
-172.31.44.153 isu2
-172.31.38.255 isu3
+192.168.0.11 isu1
+192.168.0.13 isu2
+192.168.0.12 isu3
 ```
 
 ## 他インスタンスのセットアップ

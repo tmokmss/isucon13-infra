@@ -10,6 +10,7 @@ init:
 	cp ~/env.sh ./env.sh | true
 	cp /etc/nginx/nginx.conf ./nginx.conf | true
 	# cp /etc/nginx/sites-enabled/isupipe.conf ./isupipe.conf | true
+	cp /etc/nginx/sites-enabled/isupipe.conf ./isupipe.conf | true
 	# cp /etc/mysql/my.cnf ./my.cnf | true
 	cp /etc/mysql/mysql.conf.d/mysqld.cnf mysqld.cnf | true
 apply:
@@ -24,6 +25,7 @@ apply:
 	sudo cp .vimrc /root/.vimrc
 	sudo cp ./nginx.conf /etc/nginx/nginx.conf
 	# sudo cp ./isupipe.conf /etc/nginx/sites-enabled/isupipe.conf
+	sudo cp ./isupipe.conf /etc/nginx/sites-enabled/isupipe.conf
 	# sudo cp ./my.cnf /etc/mysql/my.cnf
 	sudo cp ./mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 	make nginx

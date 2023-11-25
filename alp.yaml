@@ -1,9 +1,17 @@
  matching_groups:
-  - /api/courses/[^/]+/status
-  - /api/courses/[^/]+/classes/[^/]+/assignments/scores
-  - /api/courses/[^/]+/classes/[^/]+/assignments/export
-  - /api/courses/[^/]+/classes/[^/]+/assignments
-  - /api/courses/[^/]+/classes
-  - /api/courses/[^/]+
-  - /api/announcements/[^/]+
+  - /api/user/[^/]+/theme
+  - /api/user/[^/]+/livestream
+  - /api/livestream/[^/]+
+  - /api/livestream/[^/]+/livecomment
+  - /api/livestream/[^/]+/reaction
+  - /api/livestream/[^/]+/reports
+  - /api/livestream/[^/]+/ngwords
+  - /api/livestream/[^/]+/livecomment/[^/]+/report
+  - /api/livestream/[^/]+/moderate
+  - /api/livestream/[^/]+/enter
+  - /api/livestream/[^/]+/exit
+  - /api/user/[^/]+
+  - /api/user/[^/]+/statistics
+  - /api/user/[^/]+/icon
+  - /api/livestream/[^/]+/statistics
  reverse: true

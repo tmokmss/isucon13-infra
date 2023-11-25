@@ -160,6 +160,10 @@ GRANT ALL ON *.* to isucon@'%' IDENTIFIED BY 'isucon';
 # after mysql 8.0
 CREATE USER 'isucon'@'%' IDENTIFIED BY 'isucon';
 GRANT ALL ON *.* to 'isucon'@'%';
+
+
+CREATE USER 'isudns'@'%' IDENTIFIED BY 'isudns';
+GRANT ALL ON *.* to 'isudns'@'%';
 ```
 
 ### Install redis

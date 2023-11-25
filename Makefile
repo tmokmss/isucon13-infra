@@ -14,8 +14,7 @@ init:
 	# cp /etc/mysql/my.cnf ./my.cnf | true
 	cp /etc/mysql/mysql.conf.d/mysqld.cnf mysqld.cnf | true
 	cp /etc/powerdns/pdns.conf pdns.conf | true
-	cp /etc/dnsdist/dnsdist.conf dnsdist.conf | true
-	
+	sudo cp /etc/dnsdist/dnsdist.conf dnsdist.conf | true
 apply:
 	# cannot apply this from Makefile for some reason
 	# source ~/.bashrc
@@ -47,6 +46,7 @@ nginx:
 	sudo systemctl restart nginx.service
 pdns:
 	sudo systemctl restart pdns
+	sudo systemctl restart dnsdist
 
 app:
 	# TODO: check command to restart the app

@@ -124,6 +124,7 @@ sudo reboot
 # without bastion
 ssh -L localhost:8080:localhost:80 ec2-user@13.0.0.30
 ssh -L localhost:3306:localhost:3306 isu2
+ssh -L localhost:3307:localhost:3306 isu3
 
 # with bastion (13.0.0.30 to 172.31.6.60)
 ssh -L localhost:8080:172.31.6.60:80 ec2-user@13.0.0.30

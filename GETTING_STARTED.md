@@ -125,7 +125,7 @@ git push -f --set-upstream origin main
 ```sh
 # appのサービス定義
 sudo systemctl list-unit-files | grep isu
-sudo systemctl cat isucholar.go
+sudo systemctl cat isupipe.go
 
 # nginx conf
 nginx -V 2>&1 | grep --colour conf
@@ -206,7 +206,7 @@ sudo vim /etc/hosts
 5. 脳死改善
    1. DBとアプリのサーバーを分離 とりあえず2台使う
    2. mitigations=off
-   3. mysql速度特化に skip-log-bin, skip-name-resolve, flush_log_at_trx performance_schema=OFF
+   3. mysql速度特化に skip-log-bin, skip-name-resolve, flush_log_at_trx, performance_schema=OFF
    4. mysqlConfig.InterpolateParams = true
    5. nginx http=1.1, keepalive
 6. ログ仕込む

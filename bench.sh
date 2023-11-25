@@ -4,7 +4,7 @@
 # run ./dispatch.sh "make reset-log" first to rotate logs
 
 # kill $(lsof -t -i:8080) # kill pprof browser
-# go tool pprof -seconds 60 -http=0.0.0.0:8081 ~/webapp/go/isucholar http://localhost:6060/debug/pprof/profile
+# go tool pprof -seconds 60 -http=0.0.0.0:8081 ~/webapp/go/isupipe http://localhost:6060/debug/pprof/profile
 ./dispatch.sh "git pull"
 
 sleep 70

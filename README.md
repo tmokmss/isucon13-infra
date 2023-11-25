@@ -19,22 +19,22 @@ sudo apparmor_parser -R /etc/apparmor.d/disable/usr.sbin.mysqld
 
 ### show systemd definition
 ```sh
-systemctl cat isucholar.go.service
+systemctl cat isupipe.go.service
 
 # or check the definition file directly
-sudo systemctl status isucholar.go.service
+sudo systemctl status isupipe.go.service
 
 # something like this will appear
-● isucholar.go.service - isucholar.go
-     Loaded: loaded (/etc/systemd/system/isucholar.go.service; enabled; vendor preset: enabled)
+● isupipe.go.service - isupipe.go
+     Loaded: loaded (/etc/systemd/system/isupipe.go.service; enabled; vendor preset: enabled)
      Active: active (running) since Thu 2023-11-02 06:51:40 UTC; 1h 46min ago
-   Main PID: 26760 (isucholar)
+   Main PID: 26760 (isupipe)
       Tasks: 15 (limit: 2260)
      Memory: 478.9M
-     CGroup: /system.slice/isucholar.go.service
-             └─26760 /home/isucon/webapp/go/isucholar
+     CGroup: /system.slice/isupipe.go.service
+             └─26760 /home/isucon/webapp/go/isupipe
 
-cat /etc/systemd/system/isucholar.go.service
+cat /etc/systemd/system/isupipe.go.service
 ```
 
 ### setup alp
@@ -88,8 +88,9 @@ sudo less /var/log/syslog
 sudo less /var/log/mysql
 sudo less /var/log/nginx
 
-journalctl -q -u isucholar.go -f
+journalctl -q -u isupipe.go -f
 journalctl -xe
+sudo journalctl -xe
 ```
 
 ### Disable mitigations
@@ -109,7 +110,7 @@ sudo update-grub
 sudo vim /etc/default/grub.d/99-isucon.cfg
 # add this line
 GRUB_CMDLINE_LINUX="mitigations=off"
-# or append the option
+# or append to the existing option (space-separated)
 GRUB_CMDLINE_LINUX="mem=2G mitigations=off"
 
 sudo update-grub
